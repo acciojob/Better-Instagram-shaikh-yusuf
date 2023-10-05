@@ -1,30 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <script src="script.js " defer></script>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styles.css" />
-    <title>Better Instagram</title>
+    <title>Document</title>
+    <style>
+      #container {
+        display: flex;
+        gap: 10px;
+      }
+      img {
+        width: 100px;
+        height: 200px;
+      }
+    </style>
   </head>
   <body>
-    <h1 style="text-align: center">Arrange Images by drag and drop</h1>
-    <div id="container" class="flex" id="parent">
-      <div draggable="true"  class="image" id="one" >Image 1</div>
-      <div draggable="true" class="image" id="two"  >Image 2</div>
-      <div draggable="true" class="image" id="three"  >Image 3</div>
-      <div draggable="true" class="image" id="four" >Image 4</div>
-      <div draggable="true" class="image" id="five" >Image 5</div>
-      <div draggable="true" class="image" id="six" >Image 6</div>
+    <div id="container">
+      <img draggable="true" src="./images/one.jpeg" id="one" />
+      <img draggable="true" src="./images/two.jpeg" id="two" />
+      <img draggable="true"  src="./images/three.jpeg" id="three" />
+      <img draggable="true" src="./images/four.jpeg" id="four" />
+      <img draggable="true" src="./images/five.jpeg" id="five" />
     </div>
-	    
-    </div>
-	  <script>
-const container = document.getElementById("container");
+    <script >
+		const container = document.getElementById("container");
 const images = document.getElementsByTagName("img");
 
-		function onDragStart(event) {
+/**
+ *
+ * For every image
+ * 1. dragstart event => to set it's id in the dataTransfer.
+ *
+ * 2. dragover event => as every image is a dropzone we need to prevent the default behaviour in this dragover event to make it act like a drop container.
+ *
+ * 3. drop => to execute the swapping logic.
+ */
+
+function onDragStart(event) {
   // event.target represents the dragged element
   event.dataTransfer.setData("sourceId", event.target.id);
 }
@@ -55,6 +69,59 @@ for (let i = 0; i < images.length; i++) {
   images[i].addEventListener("drop", onDrop);
 }
 
-	  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	</script>
   </body>
 </html>
