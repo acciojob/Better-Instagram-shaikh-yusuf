@@ -3,7 +3,7 @@ const images = document.getElementsByClassName("image");
 
 		  function onDragStart(event) {
   // event.target represents the dragged element
-  event.dataTransfer.setData("sourceId", event.target.id);
+  event.dataTransfer.setData("drag", event.target.id);
 }
 
 function onDragOver(event) {
@@ -12,7 +12,7 @@ function onDragOver(event) {
 
 function onDrop(event) {
   // event.target => on which we drop some element
-  const sourceId = event.dataTransfer.getData("sourceId");
+  const sourceId = event.dataTransfer.getData("drag");
   const sourceElement = document.getElementById(sourceId);
   const destElement = event.target;
 
