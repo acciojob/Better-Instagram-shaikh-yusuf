@@ -10,49 +10,18 @@
   </head>
   <body>
     <h1 style="text-align: center">Arrange Images by drag and drop</h1>
-    <div class="flex" id="parent">
-      <div draggable="true"  class="image" id='one' >Image 1</div>
-      <div draggable="true" class="image" id='two' >Image 2</div>
-      <div draggable="true" class="image" id='three' >Image 3</div>
-      <div draggable="true" class="image" id='four'>Image 4</div>
-      <div draggable="true" class="image" id='five'>Image 5</div>
-      <div draggable="true" class="image" id='six'>Image 6</div>
+    <div class="flex" id='container' >
+      <div draggable="true"  class="image" id='div1' ></div>
+      <div draggable="true" class="image" id='div2' ></div>
+      <div draggable="true" class="image" id='div3' ></div>
+      <div draggable="true" class="image" id='div4'></div>
+      <div draggable="true" class="image" id='div5'></div>
+      <div draggable="true" class="image" id='div6'></div>
     </div>
-	  <script>
-const container = document.getElementById("container");
-const images = document.getElementsByClassName("image");
 
-		  unction onDragStart(event) {
-  // event.target represents the dragged element
-  event.dataTransfer.setData("sourceId", event.target.id);
-}
-
-function onDragOver(event) {
-  event.preventDefault();
-}
-
-function onDrop(event) {
-  // event.target => on which we drop some element
-  const sourceId = event.dataTransfer.getData("sourceId");
-  const sourceElement = document.getElementById(sourceId);
-  const destElement = event.target;
-
-  const sourceNextElement = sourceElement.nextElementSibling;
-  const destNextElement = destElement.nextElementSibling;
-
-  // adding destElement in front of sourceNextElement
-  container.insertBefore(destElement, sourceNextElement);
-
-  // adding sourceElement in front of destNextElement
-  container.insertBefore(sourceElement, destNextElement);
-}
-
-for (let i = 0; i < images.length; i++) {
-  images[i].addEventListener("dragstart", onDragStart);
-  images[i].addEventListener("dragover", onDragOver);
-  images[i].addEventListener("drop", onDrop);
-}
-
+	  
+	  <script src='./javascirpt.js'>
+  
 
 	  </script>
   </body>
